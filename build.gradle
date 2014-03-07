@@ -1,0 +1,38 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.9.0'
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://github.com/Goddchen/mvn-repo/raw/master/'
+    }
+}
+
+apply plugin: 'android'
+
+dependencies {
+    compile 'com.android:volley:1.0'
+
+    androidTestCompile('com.jakewharton.espresso:espresso:1.1-r2') {
+        exclude group: 'com.squareup.dagger'
+    }
+}
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.0.2"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 19
+
+        testInstrumentationRunner "com.google.android.apps.common.testing.testrunner.GoogleInstrumentationTestRunner"
+    }
+}
