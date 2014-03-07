@@ -19,15 +19,18 @@ apply plugin: 'android'
 
 dependencies {
     compile 'com.android:volley:1.0'
+    compile 'com.squareup.retrofit:retrofit:1.4.1'
 
     androidTestCompile('com.jakewharton.espresso:espresso:1.1-r2') {
         exclude group: 'com.squareup.dagger'
     }
+
+    compile 'com.jakewharton.espresso:espresso:1.1-r2'
 }
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "19.0.2"
+    buildToolsVersion "19.0.3"
 
     defaultConfig {
         minSdkVersion 14
