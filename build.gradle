@@ -11,6 +11,7 @@ buildscript {
 repositories {
     mavenCentral()
     maven {
+        // this is a good maven repository with a lot of useful libraries.
         url 'https://github.com/Goddchen/mvn-repo/raw/master/'
     }
 }
@@ -22,10 +23,12 @@ dependencies {
     compile 'com.squareup.retrofit:retrofit:1.4.1'
 
     androidTestCompile('com.jakewharton.espresso:espresso:1.1-r2') {
-        exclude group: 'com.squareup.dagger'
-    }
 
-    compile 'com.jakewharton.espresso:espresso:1.1-r2'
+        // transient dependency to dagger is necessary as espresso will throw a
+        // ClassNotFoundException.
+
+        // exclude group: 'com.squareup.dagger'
+    }
 }
 
 android {
@@ -38,4 +41,11 @@ android {
 
         testInstrumentationRunner "com.google.android.apps.common.testing.testrunner.GoogleInstrumentationTestRunner"
     }
+
+    // this is necessary to get the test running, for more info see:
+    // http://code.google.com/p/android-test-kit/wiki/Espresso
+    packagingOptions {
+        exclude 'LICENSE.txt'
+    }
+
 }
