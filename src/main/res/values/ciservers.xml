@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ci_servers">
+        <item>Jenkins</item>
+        <item>Hudson</item>
+        <item>Bamboo</item>
+        <item>Continous</item>
+    </string-array>
+</resources>

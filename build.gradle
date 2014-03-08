@@ -19,8 +19,14 @@ repositories {
 apply plugin: 'android'
 
 dependencies {
+    // HTTP library.
     compile 'com.android:volley:1.0'
+
+    // REST library.
     compile 'com.squareup.retrofit:retrofit:1.4.1'
+
+    // Notification library alternative to Toast
+    compile 'de.keyboardsurfer.android.widget:crouton:1.8.3'
 
     androidTestCompile('com.jakewharton.espresso:espresso:1.1-r2') {
 

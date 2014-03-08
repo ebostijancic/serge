@@ -8,8 +8,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
-import org.bostijancic.android.jenkdroid.R;
+import static android.widget.ArrayAdapter.createFromResource;
 
 public class MainActivity extends Activity {
 
@@ -25,10 +27,9 @@ public class MainActivity extends Activity {
         }
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
@@ -53,9 +54,31 @@ public class MainActivity extends Activity {
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.fragment_main, container, false);
+                                 Bundle savedInstanceState) {
+
+            final View view = inflater.inflate(R.layout.fragment_main, container, false);
+
+            populateCiServerTypes(view);
+
+            return view;
         }
+
+        /**
+         * method used to populate the spinner with a list of available CI servers.
+         *
+         * @param view
+         */
+        private void populateCiServerTypes(final View view) {
+            final Spinner selectServerType = (Spinner) view.findViewById(R.id.serverType);
+
+            assert selectServerType != null;
+
+            final ArrayAdapter<CharSequence> spinnerAdapter = createFromResource(getActivity(), R.array.ci_servers, android.R.layout.simple_spinner_item);
+
+            spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            selectServerType.setAdapter(spinnerAdapter);
+        }
+
     }
 
 }
