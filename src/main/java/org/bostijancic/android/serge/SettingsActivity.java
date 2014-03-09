@@ -3,17 +3,22 @@ package org.bostijancic.android.serge;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
+
+import org.bostijancic.android.serge.jenkins.JenkinsHttpClient;
+import org.bostijancic.android.serge.jenkins.model.Jenkins;
 
 import static android.widget.ArrayAdapter.createFromResource;
 
-public class MainActivity extends Activity {
+public class SettingsActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +65,23 @@ public class MainActivity extends Activity {
 
             populateCiServerTypes(view);
 
+            addTryLoginBehaviour(view);
+
             return view;
+        }
+
+        private void addTryLoginBehaviour(View view) {
+
+            final Button tryLoginButton = (Button) view.findViewById(R.id.tryLogin);
+            tryLoginButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    final JenkinsHttpClient httpClient = new JenkinsHttpClient();
+                    final Jenkins jenkinsData = httpClient.getJenkinsData();
+
+                    Log.d(getClass().getName(), jenkinsData.getJobs().toString());
+                }
+            });
         }
 
         /**
