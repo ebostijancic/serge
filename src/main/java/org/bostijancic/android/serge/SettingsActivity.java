@@ -94,7 +94,8 @@ public class SettingsActivity extends Activity {
 
             assert selectServerType != null;
 
-            final ArrayAdapter<CharSequence> spinnerAdapter = createFromResource(getActivity(), R.array.ci_servers, android.R.layout.simple_spinner_item);
+            final ArrayAdapter<CharSequence> spinnerAdapter = createFromResource(getActivity(),
+                                            R.array.ci_servers, android.R.layout.simple_spinner_item);
 
             spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             selectServerType.setAdapter(spinnerAdapter);
