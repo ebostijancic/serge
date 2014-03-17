@@ -13,9 +13,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
-import org.bostijancic.android.serge.jenkins.JenkinsHttpClient;
-import org.bostijancic.android.serge.jenkins.model.Jenkins;
-
 import static android.widget.ArrayAdapter.createFromResource;
 
 public class SettingsActivity extends Activity {
@@ -76,10 +73,7 @@ public class SettingsActivity extends Activity {
             tryLoginButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    final JenkinsHttpClient httpClient = new JenkinsHttpClient();
-                    final Jenkins jenkinsData = httpClient.getJenkinsData();
-
-                    Log.d(getClass().getName(), jenkinsData.getJobs().toString());
+                    Log.d(SettingsActivity.class.getName(), "Try login clicked!");
                 }
             });
         }

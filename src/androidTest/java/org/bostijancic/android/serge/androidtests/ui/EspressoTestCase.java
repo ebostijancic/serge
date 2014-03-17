@@ -1,11 +1,11 @@
-package org.bostijancic.android.serge.androidtests;
+package org.bostijancic.android.serge.androidtests.ui;
 
 import android.test.ActivityInstrumentationTestCase2;
 
 /**
  * ebostijancic on 08/03/14.
  */
-public class EspressoTestCase<T> extends ActivityInstrumentationTestCase2 {
+public abstract class EspressoTestCase<T> extends ActivityInstrumentationTestCase2 {
 
     public EspressoTestCase(Class<T> activityClass) {
         super(activityClass);

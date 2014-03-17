@@ -18,13 +18,6 @@ repositories {
 
 apply plugin: 'android'
 
-// extend the runtime
-configurations {
-    unitTestCompile.extendsFrom runtime
-    unitTestRuntime.extendsFrom unitTestCompile
-}
-
-
 dependencies {
     // HTTP library.
     compile 'com.android:volley:1.0'
@@ -35,40 +28,9 @@ dependencies {
     // Notification library alternative to Toast
     compile 'de.keyboardsurfer.android.widget:crouton:1.8.3'
 
-    androidTestCompile('com.jakewharton.espresso:espresso:1.1-r2') {
-
-        // transient dependency to dagger is necessary as espresso will throw a
-        // ClassNotFoundException.
-
-        // exclude group: 'com.squareup.dagger'
-    }
-
-    // unitTestCompile 'junit:junit:4.11'
-
-    unitTestCompile files("$project.buildDir/classes/release")
-    unitTestCompile 'junit:junit:4.11'
-    unitTestCompile 'org.robolectric:robolectric:2.1.+'
-    unitTestCompile 'com.google.android:android:4.0.1.2'
+   androidTestCompile('com.jakewharton.espresso:espresso:1.1-r2')
+   androidTestCompile 'junit:junit:3.8.2'
 }
-
-// add a new unitTest sourceSet
-sourceSets {
-    unitTest {
-        java.srcDir file('src/test/java')
-        resources.srcDir file('src/test/resources')
-    }
-}
-
-
-// add the unitTest task
-task unitTest(type:Test, dependsOn: assemble) {
-    description = "run unit tests"
-    testClassesDir = project.sourceSets.unitTest.output.classesDir
-    classpath = project.sourceSets.unitTest.runtimeClasspath
-}
-
-// bind to check
-check.dependsOn unitTest
 
 android {
 
@@ -79,7 +41,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 19
 
-        testInstrumentationRunner "com.google.android.apps.common.testing.testrunner.GoogleInstrumentationTestRunner"
+        //testInstrumentationRunner "com.google.android.apps.common.testing.testrunner.GoogleInstrumentationTestRunner"
     }
 
     // this is necessary to get the test running, for more info see:

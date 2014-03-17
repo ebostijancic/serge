@@ -1,4 +1,4 @@
-package org.bostijancic.android.serge.androidtests;
+package org.bostijancic.android.serge.androidtests.ui;
 
 import android.test.ActivityInstrumentationTestCase2;
 
@@ -22,6 +22,7 @@ import static org.hamcrest.Matchers.is;
  * ebostijancic on 07.03.14.
  */
 public class TestCreateAccount extends ActivityInstrumentationTestCase2<SettingsActivity> {
+
 
     // this public no-arg constructor is necessary for calling espresso tests.
     public TestCreateAccount() {

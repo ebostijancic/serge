@@ -1,4 +1,4 @@
-package org.bostijancic.android.serge.androidtests;
+package org.bostijancic.android.serge.androidtests.ui;
 
 import org.bostijancic.android.serge.SettingsActivity;
 
