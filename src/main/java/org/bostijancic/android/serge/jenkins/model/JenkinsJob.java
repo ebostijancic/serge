@@ -1,12 +1,27 @@
 package org.bostijancic.android.serge.jenkins.model;
 
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
 /**
  * emil on 09/03/14.
  */
+@DatabaseTable(tableName = "jenkinsJob")
 public class JenkinsJob {
+    @DatabaseField(id = true)
+    private Integer buildNumber;
+
+    @DatabaseField
     private String name;
+
+    @DatabaseField
     private String url;
+
+    @DatabaseField
     private String color;
+
+    @DatabaseField
+    private JenkinsServer jenkinsServer;
 
     public JenkinsJob() {
     }

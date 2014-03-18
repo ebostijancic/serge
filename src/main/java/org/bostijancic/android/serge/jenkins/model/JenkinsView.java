@@ -1,13 +1,24 @@
 package org.bostijancic.android.serge.jenkins.model;
 
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
 import java.net.URL;
 
 /**
  * emil on 09/03/14.
  */
+@DatabaseTable(tableName = "jenkinsViews")
 public class JenkinsView {
+
+    @DatabaseField
     private String name;
+
+    @DatabaseField
     private URL url;
+
+    @DatabaseField
+    private JenkinsServer jenkinsServer;
 
     public JenkinsView() {
     }

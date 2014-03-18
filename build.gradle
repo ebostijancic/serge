@@ -28,6 +28,8 @@ dependencies {
     // Notification library alternative to Toast
     compile 'de.keyboardsurfer.android.widget:crouton:1.8.3'
 
+    compile 'com.j256.ormlite:ormlite-android:4.48'
+
    androidTestCompile('com.jakewharton.espresso:espresso:1.1-r2')
    androidTestCompile 'junit:junit:3.8.2'
 }

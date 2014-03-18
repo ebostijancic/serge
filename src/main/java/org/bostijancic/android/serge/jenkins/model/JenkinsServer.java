@@ -1,30 +1,58 @@
 package org.bostijancic.android.serge.jenkins.model;
 
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * emil on 09/03/14.
  */
-public class Jenkins {
+@DatabaseTable(tableName = "jenkinsServerInfo")
+public class JenkinsServer {
     private List<String> assignedLables = new ArrayList<String>();
+
+    @DatabaseField
     private String mode = "NORMAL";
+
+    @DatabaseField
     private String nodeDescription;
+
+    @DatabaseField
     private String nodeName;
-    private Integer nuExecutors;
+
+    @DatabaseField
+    private Integer noExecutors;
+
+    @DatabaseField
     private String description;
+
     private List<JenkinsJob> jobs = new ArrayList<JenkinsJob>();
+
+    @DatabaseField
     private PrimaryView primaryView = new PrimaryView();
+
+    @DatabaseField
     private Boolean quietingDown = false;
+
+    @DatabaseField
     private Integer slaveAgentPort;
+
+    @DatabaseField
     private UnlabeledLoad unlabeledLoad = new UnlabeledLoad();
+
+    @DatabaseField
     private Boolean useCrumbs = false;
+
+    @DatabaseField
     private Boolean useSecurity = false;
+
+    @DatabaseField
     private List<JenkinsView> jenkinsViews = new ArrayList<JenkinsView>();
 
 
-    public Jenkins() {
-    }
+    public JenkinsServer() {}
 
     public List<String> getAssignedLables() {
         return assignedLables;
@@ -58,12 +86,12 @@ public class Jenkins {
         this.nodeName = nodeName;
     }
 
-    public Integer getNuExecutors() {
-        return nuExecutors;
+    public Integer getNoExecutors() {
+        return noExecutors;
     }
 
-    public void setNuExecutors(Integer nuExecutors) {
-        this.nuExecutors = nuExecutors;
+    public void setNoExecutors(Integer noExecutors) {
+        this.noExecutors = noExecutors;
     }
 
     public String getDescription() {
