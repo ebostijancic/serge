@@ -13,6 +13,7 @@ repositories {
     maven {
         // this is a good maven repository with a lot of useful libraries.
         url 'https://github.com/Goddchen/mvn-repo/raw/master/'
+
     }
 }
 
@@ -29,8 +30,10 @@ dependencies {
     compile 'de.keyboardsurfer.android.widget:crouton:1.8.3'
 
     compile 'com.j256.ormlite:ormlite-android:4.48'
+    compile 'de.greenrobot:greendao:1.3.7'
+    compile files('libs/activeandroid.jar')
 
-   androidTestCompile('com.jakewharton.espresso:espresso:1.1-r2')
+   androidTestCompile 'com.jakewharton.espresso:espresso:1.1-r2'
    androidTestCompile 'junit:junit:3.8.2'
 }
 
@@ -43,6 +46,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 19
 
+
         //testInstrumentationRunner "com.google.android.apps.common.testing.testrunner.GoogleInstrumentationTestRunner"
     }
 
@@ -52,4 +56,10 @@ android {
         exclude 'LICENSE.txt'
     }
 
+    sourceSets {
+        androidTest {
+            manifest.srcFile 'src/androidTest/AndroidManifest.xml'
+        }
+    }
 }
+

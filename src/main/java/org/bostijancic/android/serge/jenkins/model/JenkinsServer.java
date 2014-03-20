@@ -1,168 +1,38 @@
 package org.bostijancic.android.serge.jenkins.model;
 
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.table.DatabaseTable;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.activeandroid.Model;
+import com.activeandroid.annotation.Column;
+import com.activeandroid.annotation.Table;
 
 /**
  * emil on 09/03/14.
  */
-@DatabaseTable(tableName = "jenkinsServerInfo")
-public class JenkinsServer {
-    private List<String> assignedLables = new ArrayList<String>();
+@Table(name = "JenkinsServer")
+public class JenkinsServer extends Model {
+    @Column(name = "Mode")
+    public String mode = "NORMAL";
 
-    @DatabaseField
-    private String mode = "NORMAL";
+    @Column(name = "NodeDescription")
+    public String nodeDescription;
 
-    @DatabaseField
-    private String nodeDescription;
+    @Column(name = "NodeName")
+    public String nodeName;
 
-    @DatabaseField
-    private String nodeName;
+    @Column(name = "NoExecutors")
+    public Integer noExecutors;
 
-    @DatabaseField
-    private Integer noExecutors;
+    @Column(name = "Description")
+    public String description;
 
-    @DatabaseField
-    private String description;
+    @Column(name = "QuietingDown")
+    public Boolean quietingDown = false;
 
-    private List<JenkinsJob> jobs = new ArrayList<JenkinsJob>();
+    @Column(name = "SlaveAgentPort")
+    public Integer slaveAgentPort;
 
-    @DatabaseField
-    private PrimaryView primaryView = new PrimaryView();
+    @Column(name = "UseCrumbs")
+    public Boolean useCrumbs = false;
 
-    @DatabaseField
-    private Boolean quietingDown = false;
-
-    @DatabaseField
-    private Integer slaveAgentPort;
-
-    @DatabaseField
-    private UnlabeledLoad unlabeledLoad = new UnlabeledLoad();
-
-    @DatabaseField
-    private Boolean useCrumbs = false;
-
-    @DatabaseField
-    private Boolean useSecurity = false;
-
-    @DatabaseField
-    private List<JenkinsView> jenkinsViews = new ArrayList<JenkinsView>();
-
-
-    public JenkinsServer() {}
-
-    public List<String> getAssignedLables() {
-        return assignedLables;
-    }
-
-    public void setAssignedLables(List<String> assignedLables) {
-        this.assignedLables = assignedLables;
-    }
-
-    public String getMode() {
-        return mode;
-    }
-
-    public void setMode(String mode) {
-        this.mode = mode;
-    }
-
-    public String getNodeDescription() {
-        return nodeDescription;
-    }
-
-    public void setNodeDescription(String nodeDescription) {
-        this.nodeDescription = nodeDescription;
-    }
-
-    public String getNodeName() {
-        return nodeName;
-    }
-
-    public void setNodeName(String nodeName) {
-        this.nodeName = nodeName;
-    }
-
-    public Integer getNoExecutors() {
-        return noExecutors;
-    }
-
-    public void setNoExecutors(Integer noExecutors) {
-        this.noExecutors = noExecutors;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public List<JenkinsJob> getJobs() {
-        return jobs;
-    }
-
-    public void setJobs(List<JenkinsJob> jobs) {
-        this.jobs = jobs;
-    }
-
-    public PrimaryView getPrimaryView() {
-        return primaryView;
-    }
-
-    public void setPrimaryView(PrimaryView primaryView) {
-        this.primaryView = primaryView;
-    }
-
-    public Boolean getQuietingDown() {
-        return quietingDown;
-    }
-
-    public void setQuietingDown(Boolean quietingDown) {
-        this.quietingDown = quietingDown;
-    }
-
-    public Integer getSlaveAgentPort() {
-        return slaveAgentPort;
-    }
-
-    public void setSlaveAgentPort(Integer slaveAgentPort) {
-        this.slaveAgentPort = slaveAgentPort;
-    }
-
-    public UnlabeledLoad getUnlabeledLoad() {
-        return unlabeledLoad;
-    }
-
-    public void setUnlabeledLoad(UnlabeledLoad unlabeledLoad) {
-        this.unlabeledLoad = unlabeledLoad;
-    }
-
-    public Boolean getUseCrumbs() {
-        return useCrumbs;
-    }
-
-    public void setUseCrumbs(Boolean useCrumbs) {
-        this.useCrumbs = useCrumbs;
-    }
-
-    public Boolean getUseSecurity() {
-        return useSecurity;
-    }
-
-    public void setUseSecurity(Boolean useSecurity) {
-        this.useSecurity = useSecurity;
-    }
-
-    public List<JenkinsView> getJenkinsViews() {
-        return jenkinsViews;
-    }
-
-    public void setJenkinsViews(List<JenkinsView> jenkinsViews) {
-        this.jenkinsViews = jenkinsViews;
-    }
+    @Column(name = "UseSecurity")
+    public Boolean useSecurity = false;
 }

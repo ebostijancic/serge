@@ -1,6 +1,6 @@
 package org.bostijancic.android.serge.jenkins.authenticator;
 
-import org.bostijancic.android.serge.jenkins.model.Jenkins;
+import org.bostijancic.android.serge.jenkins.model.JenkinsServer;
 
 import retrofit.http.GET;
 
@@ -10,6 +10,7 @@ import retrofit.http.GET;
 public interface JenkinsService {
 
     @GET("/api/json")
-    public Jenkins getJenkins();
+    public JenkinsServer
+    getJenkins();
 }
 
